@@ -1,7 +1,7 @@
 
 ---
 
-### 5. `images/README.md` (Image Guide)
+###  `images/README.md` (Image Guide)
 
 ```markdown
 # Image Requirements for CleanPro Landing Page
@@ -89,31 +89,3 @@ For service cards:
 - "modern office workspace"
 - "cleaning professional at work"
 - "emergency cleaning service"
-
-## ⚡ Optimization Tips
-
-1. **Compress images** using:
-   - TinyPNG: https://tinypng.com
-   - Squoosh: https://squoosh.app
-   - ImageOptim (Mac)
-
-2. **Resize images** to exact dimensions needed
-
-3. **Use WebP format** for better compression (optional)
-
-4. **Test loading speed** after adding images
-
-## ✅ Checklist
-
-Before launching:
-- [ ] All 7 images are in `/images` folder
-- [ ] Filenames match exactly (case-sensitive)
-- [ ] Images are optimized for web
-- [ ] Hero image is landscape orientation
-- [ ] Service card images are consistent in style
-- [ ] Logo has transparent background
-- [ ] All images display correctly on mobile
-
----
-
-Need help finding images? Contact your web developer or use stock photo services like Shutterstock, Adobe Stock, or Getty Images for premium options.
