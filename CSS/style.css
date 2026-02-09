@@ -224,7 +224,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     font-weight: 500;
     font-size: 1.05rem;
-    padding: 8px 0;
+    padding: 5px 5px;
     position: relative;
     transition: color 0.3s;
     display: flex;
@@ -258,6 +258,7 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 10px 24px;
+    margin: 4px 2px 4px 2px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
@@ -268,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 42px;
+    height: 44px;
 }
 
 .btn-primary-nav-main:hover {
