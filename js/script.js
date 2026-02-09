@@ -114,10 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== FORM SUBMISSION HANDLING WITH MODAL - COMPLETELY FIXED =====
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const supportForm = document.getElementById('supportForm');
-    
     // Handle main contact form
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         // IMPORTANT: Replace with your actual email address
         const yourEmail = "your-email@example.com"; // <-- CHANGE THIS TO YOUR EMAIL
@@ -166,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error sending your message. Please try again or contact us directly at info@cleanpro-uk.com');
+                alert('There was an error sending your message. Please try again or contact us directly at info@nestcarecleaningservices.co.uk');
             })
             .finally(() => {
                 // Restore button
@@ -179,16 +177,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Handle support form
+    const supportForm = document.getElementById('supportForm');
     if (supportForm) {
         // IMPORTANT: Replace with your actual email address
-        const supportEmail = "support-email@example.com"; // <-- CHANGE THIS TO YOUR SUPPORT EMAIL
-        supportForm.action = supportForm.action.replace("support-email@example.com", supportEmail);
+        const supportEmail = "support@nestcarecleaningservices.co.uk"; // <-- CHANGE THIS TO YOUR SUPPORT EMAIL
+        supportForm.action = supportForm.action.replace("support@nestcarecleaningservices.co.uk", supportEmail);
         
         supportForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // First run validation
-            if (!validateSupportForm(supportForm)) {
+            if (!validateForm(supportForm)) {
                 return;
             }
             
@@ -218,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     // Show success modal
-                    showSupportSuccessModal();
+                    showFormSuccessModal();
                     // Reset form
                     supportForm.reset();
                 } else {
@@ -227,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error sending your support request. Please try again or call us directly at 020 1234 5678');
+                alert('There was an error sending your support request. Please try again or contact us directly at support@nestcarecleaningservices.co.uk');
             })
             .finally(() => {
                 // Restore button
@@ -239,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Form validation function for main contact form
+    // Form validation function
     function validateForm(form) {
         let isValid = true;
         
@@ -255,50 +254,72 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Validate Name
-        const name = form.querySelector('#name');
-        if (!name.value.trim()) {
+        const name = form.querySelector('#name, #fullName');
+        if (!name || !name.value.trim()) {
             showError(name, 'Name is required');
             isValid = false;
-        } else if (name.value.trim().length < 2) {
+        } else if (name && name.value.trim().length < 2) {
             showError(name, 'Name must be at least 2 characters');
             isValid = false;
         }
         
         // Validate Email
-        const email = form.querySelector('#email');
+        const email = form.querySelector('#email, #supportEmail');
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email.value.trim()) {
+        if (!email || !email.value.trim()) {
             showError(email, 'Email is required');
             isValid = false;
-        } else if (!emailPattern.test(email.value.trim())) {
+        } else if (email && !emailPattern.test(email.value.trim())) {
             showError(email, 'Please enter a valid email address');
             isValid = false;
         }
         
-        // Validate Phone
-        const phone = form.querySelector('#phone');
-        const phonePattern = /^[0-9+\-\s()]{10,20}$/;
-        if (!phone.value.trim()) {
+        // Validate Phone (UK format)
+        const phone = form.querySelector('#phone, #supportPhone');
+        const ukPhonePattern = /^(?:(?:\+44\s?|0)(?:7\d{3}\s?\d{6}|20\s?\d{4}\s?\d{4}|1\d{3}\s?\d{6}|[1-9]\d{2}\s?\d{3}\s?\d{4}))$/;
+        
+        if (!phone || !phone.value.trim()) {
             showError(phone, 'Phone number is required');
             isValid = false;
-        } else if (!phonePattern.test(phone.value.trim().replace(/[\s\-()]/g, ''))) {
+        } else if (phone && !ukPhonePattern.test(phone.value.trim().replace(/[\s\-()]/g, ''))) {
             showError(phone, 'Please enter a valid UK phone number (e.g., 07XXX XXXXXX or 020 XXXX XXXX)');
             isValid = false;
         }
         
-        // Validate Service Selection
+        // Validate Service Selection (Contact form)
         const service = form.querySelector('#service');
-        if (service.value === '') {
+        if (service && service.value === '') {
             showError(service, 'Please select a service');
             isValid = false;
         }
         
+        // Validate Request Type (Support form)
+        const requestType = form.querySelector('#requestType');
+        if (requestType && requestType.value === '') {
+            showError(requestType, 'Please select a request type');
+            isValid = false;
+        }
+        
+        // Validate Service Needed (Support form)
+        const serviceNeeded = form.querySelector('#serviceType');
+        if (serviceNeeded && serviceNeeded.value === '') {
+            showError(serviceNeeded, 'Please select a service needed');
+            isValid = false;
+        }
+        
+        // Validate Location Selection
+        const location = form.querySelector('#location');
+        if (location && location.value === '') {
+            showError(location, 'Please select your location');
+            isValid = false;
+        }
+        
         // Validate Message
-        const message = form.querySelector('#message');
-        if (!message.value.trim()) {
+        const message = form.querySelector('#message, #supportMessage');
+        if (!message || !message.value.trim()) {
             showError(message, 'Message is required');
             isValid = false;
-        } else if (message.value.trim().length < 10) {
+        } else if (message && message.value.trim().length < 10) {
             showError(message, 'Message must be at least 10 characters');
             isValid = false;
         }
@@ -306,83 +327,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
     
-    // Form validation function for support form
-    function validateSupportForm(form) {
-        let isValid = true;
-        
-        // Clear previous errors
-        form.querySelectorAll('.error-message').forEach(msg => {
-            msg.textContent = '';
-        });
-        
-        form.querySelectorAll('.form-group').forEach(group => {
-            group.classList.remove('shake');
-            const input = group.querySelector('input, select, textarea');
-            if (input) input.classList.remove('error');
-        });
-        
-        // Validate Full Name
-        const fullName = form.querySelector('#fullName');
-        if (!fullName.value.trim()) {
-            showError(fullName, 'Full name is required');
-            isValid = false;
-        } else if (fullName.value.trim().length < 2) {
-            showError(fullName, 'Name must be at least 2 characters');
-            isValid = false;
-        }
-        
-        // Validate Email
-        const email = form.querySelector('#supportEmail');
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email.value.trim()) {
-            showError(email, 'Email is required');
-            isValid = false;
-        } else if (!emailPattern.test(email.value.trim())) {
-            showError(email, 'Please enter a valid email address');
-            isValid = false;
-        }
-        
-        // Validate Phone
-        const phone = form.querySelector('#supportPhone');
-        const phonePattern = /^[0-9+\-\s()]{10,20}$/;
-        if (!phone.value.trim()) {
-            showError(phone, 'Phone number is required');
-            isValid = false;
-        } else if (!phonePattern.test(phone.value.trim().replace(/[\s\-()]/g, ''))) {
-            showError(phone, 'Please enter a valid UK phone number');
-            isValid = false;
-        }
-        
-        // Validate Request Type
-        const requestType = form.querySelector('#requestType');
-        if (requestType.value === '') {
-            showError(requestType, 'Please select a request type');
-            isValid = false;
-        }
-        
-        // Validate Service Type
-        const serviceType = form.querySelector('#serviceType');
-        if (serviceType.value === '') {
-            showError(serviceType, 'Please select a service type');
-            isValid = false;
-        }
-        
-        // Validate Message
-        const message = form.querySelector('#supportMessage');
-        if (!message.value.trim()) {
-            showError(message, 'Please describe your request');
-            isValid = false;
-        } else if (message.value.trim().length < 10) {
-            showError(message, 'Request description must be at least 10 characters');
-            isValid = false;
-        }
-        
-        return isValid;
-    }
-    
     function showError(input, message) {
+        if (!input) return;
+        
         const errorElement = input.nextElementSibling;
-        errorElement.textContent = message;
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
         input.classList.add('error');
         
         // Add shake animation to parent
@@ -414,82 +365,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Show form success modal
-    function showFormSuccessModal() {
-        const modal = document.createElement('div');
-        modal.className = 'form-success-modal';
-        modal.innerHTML = `
-            <div class="success-content">
-                <button class="close-modal" aria-label="Close success message">&times;</button>
-                <div class="success-icon">
-                    <i class="fas fa-check"></i>
+    window.showFormSuccessModal = function() {
+        // Create modal if it doesn't exist
+        let modal = document.getElementById('formSuccessModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'formSuccessModal';
+            modal.className = 'form-success-modal';
+            modal.innerHTML = `
+                <div class="success-content">
+                    <button class="close-modal" aria-label="Close success message">&times;</button>
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2 class="success-title">Thank You for Contacting Us!</h2>
+                    <p class="success-message">We've received your message and will get back to you shortly. Our team typically responds within 2-4 hours during business hours. For urgent matters, please call our emergency line at 020 1234 5678.</p>
+                    <button class="success-btn" id="closeSuccessModal" aria-label="Close this message">Got it, thanks!</button>
                 </div>
-                <h2 class="success-title">Thank You for Contacting Us!</h2>
-                <p class="success-message">We've received your message and will get back to you shortly. Our team typically responds within 2-4 hours during business hours.</p>
-                <button class="success-btn" id="closeSuccessModal" aria-label="Close this message">Got it, thanks!</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        
-        // Close modal functionality
-        document.querySelector('.close-modal').addEventListener('click', () => {
-            modal.remove();
-        });
-        
-        document.getElementById('closeSuccessModal').addEventListener('click', () => {
-            modal.remove();
-        });
-        
-        // Close when clicking outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.remove();
-            }
-        });
+            `;
+            document.body.appendChild(modal);
+            
+            // Close modal functionality
+            document.querySelector('.close-modal').addEventListener('click', () => {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
+            
+            document.getElementById('closeSuccessModal').addEventListener('click', () => {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
         
         // Show modal
-        setTimeout(() => {
-            modal.classList.add('show');
-        }, 50);
-    }
-    
-    // Show support form success modal
-    function showSupportSuccessModal() {
-        const modal = document.createElement('div');
-        modal.className = 'form-success-modal';
-        modal.innerHTML = `
-            <div class="success-content">
-                <button class="close-modal" aria-label="Close success message">&times;</button>
-                <div class="success-icon">
-                    <i class="fas fa-check"></i>
-                </div>
-                <h2 class="success-title">Thank You for Contacting Support!</h2>
-                <p class="success-message">We've received your support request and will get back to you soon. Our team typically responds within 2 hours during business hours. For urgent matters, please call our emergency line at 020 1234 5678.</p>
-                <button class="success-btn" id="closeSupportModal" aria-label="Close this message">Got it, thanks!</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
+        modal.classList.add('show');
         
-        // Close modal functionality
-        document.querySelector('.close-modal').addEventListener('click', () => {
-            modal.remove();
-        });
-        
-        document.getElementById('closeSupportModal').addEventListener('click', () => {
-            modal.remove();
-        });
-        
-        // Close when clicking outside
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.remove();
-            }
-        });
-        
-        // Show modal
-        setTimeout(() => {
-            modal.classList.add('show');
-        }, 50);
-    }
+        // Prevent scrolling when modal is open
+        document.body.style.overflow = 'hidden';
+    };
 });
 
 // ===== SMOOTH SCROLLING =====
@@ -549,33 +470,30 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// ===== FAQ ACCORDION =====
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const button = item.querySelector('.faq-question');
+// ===== NEWSLETTER FORM =====
+const newsletterForm = document.getElementById('newsletterForm');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        button.addEventListener('click', () => {
-            const answer = item.querySelector('.faq-answer');
-            const expanded = button.getAttribute('aria-expanded') === 'true';
-            
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    const otherButton = otherItem.querySelector('.faq-question');
-                    const otherAnswer = otherItem.querySelector('.faq-answer');
-                    otherButton.setAttribute('aria-expanded', 'false');
-                    otherAnswer.hidden = true;
-                }
-            });
-            
-            // Toggle current item
-            button.setAttribute('aria-expanded', !expanded);
-            answer.hidden = expanded;
-        });
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailInput.value.trim()) {
+            alert('Please enter your email address');
+            return;
+        }
+        
+        if (!emailPattern.test(emailInput.value.trim())) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        alert('Thank you for subscribing to our newsletter!');
+        newsletterForm.reset();
     });
-});
+}
 
 // ===== JOBS SCROLLER =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -668,6 +586,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ===== FAQ ACCORDION =====
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const button = item.querySelector('.faq-question');
+        
+        button.addEventListener('click', () => {
+            const answer = item.querySelector('.faq-answer');
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherButton = otherItem.querySelector('.faq-question');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherAnswer.hidden = true;
+                }
+            });
+            
+            // Toggle current item
+            button.setAttribute('aria-expanded', !expanded);
+            answer.hidden = expanded;
+        });
+    });
+    
     // ===== FADE-IN ANIMATIONS ON SCROLL =====
     const observerOptions = {
         root: null,
@@ -726,61 +670,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ===== NEWSLETTER FORM =====
-const newsletterForm = document.getElementById('newsletterForm');
-
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const emailInput = newsletterForm.querySelector('input[type="email"]');
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        if (!emailInput.value.trim()) {
-            alert('Please enter your email address');
-            return;
-        }
-        
-        if (!emailPattern.test(emailInput.value.trim())) {
-            alert('Please enter a valid email address');
-            return;
-        }
-        
-        alert('Thank you for subscribing to our newsletter!');
-        newsletterForm.reset();
-    });
-};
-
 // ===== SEO ENHANCEMENTS =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Add breadcrumb schema if not present
-    if (!document.querySelector('script[type="application/ld+json"][data-schema="breadcrumb"]')) {
-        const breadcrumbScript = document.createElement('script');
-        breadcrumbScript.type = 'application/ld+json';
-        breadcrumbScript.dataset.schema = 'breadcrumb';
-        breadcrumbScript.textContent = JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.cleanpro-uk.com/"
-            }, {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://www.cleanpro-uk.com/#services"
-            }, {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Contact",
-                "item": "https://www.cleanpro-uk.com/#contact"
-            }]
-        });
-        document.head.appendChild(breadcrumbScript);
-    }
-    
     // Track form submissions in GA4
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -789,6 +680,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 gtag('event', 'form_submission', {
                     'event_category': 'Contact',
                     'event_label': 'Contact Form Submitted',
+                    'value': 1
+                });
+            }
+        });
+    }
+    
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+        supportForm.addEventListener('submit', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'form_submission', {
+                    'event_category': 'Support',
+                    'event_label': 'Support Form Submitted',
                     'value': 1
                 });
             }
@@ -825,7 +729,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Implement scroll depth tracking
     let scrollDepthTracked = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
         if (!scrollDepthTracked && window.pageYOffset > document.body.scrollHeight * 0.75) {
             if (typeof gtag === 'function') {
                 gtag('event', 'scroll_depth', {
@@ -838,3 +742,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ===== ADDITIONAL HELPER FUNCTIONS =====
+// Function to check if element is in viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to show success notification
+function showSuccess(message, isError = false) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${isError ? 'error' : 'success'}`;
+    notification.innerHTML = `
+        <i class="fas fa-${isError ? 'exclamation-circle' : 'check-circle'}"></i>
+        <span>${message}</span>
+    `;
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
+
+// Add notification styles if not exists
+if (!document.querySelector('#notification-style')) {
+    const style = document.createElement('style');
+    style.id = 'notification-style';
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            animation: slideIn 0.3s ease-out;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .notification.success {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+        .notification.error {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        @keyframes slideIn {
+            from { transform: translateX(150px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+}
