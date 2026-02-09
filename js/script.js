@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 3000);
 });
 
-// ===== MODERN NAVBAR TOGGLE =====
+// ===== MODERN NAVBAR TOGGLE - COMPLETELY FIXED =====
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenuContainer = document.querySelector('.nav-menu-container');
@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== FORM SUBMISSION HANDLING WITH MODAL - COMPLETELY FIXED =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle main contact form
     const contactForm = document.getElementById('contactForm');
-    
     if (contactForm) {
         // IMPORTANT: Replace with your actual email address
         const yourEmail = "your-email@example.com"; // <-- CHANGE THIS TO YOUR EMAIL
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // First run validation
-            if (!validateForm()) {
+            if (!validateForm(contactForm)) {
                 return;
             }
             
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                showErrorAlert('There was an error sending your message. Please try again or contact us directly at info@cleanpro-uk.com');
+                alert('There was an error sending your message. Please try again or contact us directly at info@nestcarecleaningservices.co.uk');
             })
             .finally(() => {
                 // Restore button
@@ -174,127 +174,194 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 1000);
             });
         });
+    }
+    
+    // Handle support form
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+        // IMPORTANT: Replace with your actual email address
+        const supportEmail = "support@nestcarecleaningservices.co.uk"; // <-- CHANGE THIS TO YOUR SUPPORT EMAIL
+        supportForm.action = supportForm.action.replace("support@nestcarecleaningservices.co.uk", supportEmail);
         
-        // Form validation function - ENHANCED
-        function validateForm() {
-            let isValid = true;
+        supportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Clear previous errors
-            document.querySelectorAll('.error-message').forEach(msg => {
-                msg.textContent = '';
+            // First run validation
+            if (!validateForm(supportForm)) {
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = supportForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Request...';
+            submitBtn.disabled = true;
+            
+            // Create FormData object
+            const formData = new FormData(supportForm);
+            
+            // Submit to FormSubmit using fetch
+            fetch(supportForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Show success modal
+                    showFormSuccessModal();
+                    // Reset form
+                    supportForm.reset();
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your support request. Please try again or contact us directly at support@nestcarecleaningservices.co.uk');
+            })
+            .finally(() => {
+                // Restore button
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }, 1000);
             });
-            
-            document.querySelectorAll('.form-group').forEach(group => {
-                group.classList.remove('shake');
-                const input = group.querySelector('input, select, textarea');
-                if (input) input.classList.remove('error');
-            });
-            
-            // Validate Name
-            const name = document.getElementById('name');
-            if (!name.value.trim()) {
-                showError(name, 'Name is required');
-                isValid = false;
-            } else if (name.value.trim().length < 2) {
-                showError(name, 'Name must be at least 2 characters');
-                isValid = false;
-            }
-            
-            // Validate Email
-            const email = document.getElementById('email');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim()) {
-                showError(email, 'Email is required');
-                isValid = false;
-            } else if (!emailPattern.test(email.value.trim())) {
-                showError(email, 'Please enter a valid email address');
-                isValid = false;
-            }
-            
-            // Validate Phone (UK format)
-            const phone = document.getElementById('phone');
-            // Accepts: 07XXX XXXXXX, 07XXXXXXXXX, +447XXXXXXXXX, 020 XXXX XXXX
-            const ukPhonePattern = /^(?:(?:\+44\s?|0)(?:7\d{3}\s?\d{6}|20\s?\d{4}\s?\d{4}|1\d{3}\s?\d{6}|[1-9]\d{2}\s?\d{3}\s?\d{4}))$/;
-            
-            if (!phone.value.trim()) {
-                showError(phone, 'Phone number is required');
-                isValid = false;
-            } else if (!ukPhonePattern.test(phone.value.trim().replace(/[\s\-()]/g, ''))) {
-                showError(phone, 'Please enter a valid UK phone number (e.g., 07XXX XXXXXX or 020 XXXX XXXX)');
-                isValid = false;
-            }
-            
-            // Validate Service Selection
-            const service = document.getElementById('service');
-            if (service.value === '') {
-                showError(service, 'Please select a service');
-                isValid = false;
-            }
-            
-            // Validate Message
-            const message = document.getElementById('message');
-            if (!message.value.trim()) {
-                showError(message, 'Message is required');
-                isValid = false;
-            } else if (message.value.trim().length < 10) {
-                showError(message, 'Message must be at least 10 characters');
-                isValid = false;
-            }
-            
-            return isValid;
+        });
+    }
+    
+    // Form validation function
+    function validateForm(form) {
+        let isValid = true;
+        
+        // Clear previous errors
+        form.querySelectorAll('.error-message').forEach(msg => {
+            msg.textContent = '';
+        });
+        
+        form.querySelectorAll('.form-group').forEach(group => {
+            group.classList.remove('shake');
+            const input = group.querySelector('input, select, textarea');
+            if (input) input.classList.remove('error');
+        });
+        
+        // Validate Name
+        const name = form.querySelector('#name, #fullName');
+        if (!name || !name.value.trim()) {
+            showError(name, 'Name is required');
+            isValid = false;
+        } else if (name && name.value.trim().length < 2) {
+            showError(name, 'Name must be at least 2 characters');
+            isValid = false;
         }
         
-        function showError(input, message) {
-            const errorElement = input.nextElementSibling;
+        // Validate Email
+        const email = form.querySelector('#email, #supportEmail');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !email.value.trim()) {
+            showError(email, 'Email is required');
+            isValid = false;
+        } else if (email && !emailPattern.test(email.value.trim())) {
+            showError(email, 'Please enter a valid email address');
+            isValid = false;
+        }
+        
+        // Validate Phone (UK format)
+        const phone = form.querySelector('#phone, #supportPhone');
+        const ukPhonePattern = /^(?:(?:\+44\s?|0)(?:7\d{3}\s?\d{6}|20\s?\d{4}\s?\d{4}|1\d{3}\s?\d{6}|[1-9]\d{2}\s?\d{3}\s?\d{4}))$/;
+        
+        if (!phone || !phone.value.trim()) {
+            showError(phone, 'Phone number is required');
+            isValid = false;
+        } else if (phone && !ukPhonePattern.test(phone.value.trim().replace(/[\s\-()]/g, ''))) {
+            showError(phone, 'Please enter a valid UK phone number (e.g., 07XXX XXXXXX or 020 XXXX XXXX)');
+            isValid = false;
+        }
+        
+        // Validate Service Selection (Contact form)
+        const service = form.querySelector('#service');
+        if (service && service.value === '') {
+            showError(service, 'Please select a service');
+            isValid = false;
+        }
+        
+        // Validate Request Type (Support form)
+        const requestType = form.querySelector('#requestType');
+        if (requestType && requestType.value === '') {
+            showError(requestType, 'Please select a request type');
+            isValid = false;
+        }
+        
+        // Validate Service Needed (Support form)
+        const serviceNeeded = form.querySelector('#serviceType');
+        if (serviceNeeded && serviceNeeded.value === '') {
+            showError(serviceNeeded, 'Please select a service needed');
+            isValid = false;
+        }
+        
+        // Validate Location Selection
+        const location = form.querySelector('#location');
+        if (location && location.value === '') {
+            showError(location, 'Please select your location');
+            isValid = false;
+        }
+        
+        // Validate Message
+        const message = form.querySelector('#message, #supportMessage');
+        if (!message || !message.value.trim()) {
+            showError(message, 'Message is required');
+            isValid = false;
+        } else if (message && message.value.trim().length < 10) {
+            showError(message, 'Message must be at least 10 characters');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    
+    function showError(input, message) {
+        if (!input) return;
+        
+        const errorElement = input.nextElementSibling;
+        if (errorElement) {
             errorElement.textContent = message;
-            input.classList.add('error');
-            
-            // Add shake animation to parent
-            const parent = input.closest('.form-group');
-            if (parent) {
-                parent.classList.add('shake');
-                setTimeout(() => {
-                    parent.classList.remove('shake');
-                }, 500);
-            }
-            
-            // Scroll to error if not in view
-            if (!isElementInViewport(input)) {
-                input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-            
-            // Focus the input
-            input.focus();
         }
+        input.classList.add('error');
         
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-        
-        function showErrorAlert(message) {
-            // Create and show error notification
-            const notification = document.createElement('div');
-            notification.className = 'notification error';
-            notification.innerHTML = `
-                <i class="fas fa-exclamation-circle"></i>
-                <span>${message}</span>
-            `;
-            document.body.appendChild(notification);
-            
-            // Auto remove after 5 seconds
+        // Add shake animation to parent
+        const parent = input.closest('.form-group');
+        if (parent) {
+            parent.classList.add('shake');
             setTimeout(() => {
-                notification.style.opacity = '0';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 5000);
+                parent.classList.remove('shake');
+            }, 500);
         }
+        
+        // Scroll to error if not in view
+        if (!isElementInViewport(input)) {
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Focus the input
+        input.focus();
+    }
+    
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
     }
     
     // Show form success modal
@@ -311,8 +378,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="success-icon">
                         <i class="fas fa-check"></i>
                     </div>
-                    <h2 class="success-title">Message Received!</h2>
-                    <p class="success-message">Thank you for contacting CleanPro UK! We've received your message and will get back to you shortly. Our team typically responds within 2-4 hours during business hours.</p>
+                    <h2 class="success-title">Thank You for Contacting Us!</h2>
+                    <p class="success-message">We've received your message and will get back to you shortly. Our team typically responds within 2-4 hours during business hours. For urgent matters, please call our emergency line at 020 1234 5678.</p>
                     <button class="success-btn" id="closeSuccessModal" aria-label="Close this message">Got it, thanks!</button>
                 </div>
             `;
@@ -344,43 +411,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Prevent scrolling when modal is open
         document.body.style.overflow = 'hidden';
     };
-    
-    // Add notification styles if not exists
-    if (!document.querySelector('#notification-style')) {
-        const style = document.createElement('style');
-        style.id = 'notification-style';
-        style.textContent = `
-            .notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 15px 25px;
-                border-radius: 50px;
-                color: white;
-                font-weight: 600;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-                z-index: 9999;
-                animation: slideIn 0.3s ease-out;
-                opacity: 1;
-                transition: opacity 0.3s ease;
-                font-family: 'Poppins', sans-serif;
-            }
-            .notification.success {
-                background: linear-gradient(45deg, #27ae60, #2ecc71);
-            }
-            .notification.error {
-                background: linear-gradient(45deg, #e74c3c, #c0392b);
-            }
-            @keyframes slideIn {
-                from { transform: translateX(150px); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
 });
 
 // ===== SMOOTH SCROLLING =====
@@ -556,6 +586,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ===== FAQ ACCORDION =====
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const button = item.querySelector('.faq-question');
+        
+        button.addEventListener('click', () => {
+            const answer = item.querySelector('.faq-answer');
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherButton = otherItem.querySelector('.faq-question');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherAnswer.hidden = true;
+                }
+            });
+            
+            // Toggle current item
+            button.setAttribute('aria-expanded', !expanded);
+            answer.hidden = expanded;
+        });
+    });
+    
     // ===== FADE-IN ANIMATIONS ON SCROLL =====
     const observerOptions = {
         root: null,
@@ -574,7 +630,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for fade-in
-    document.querySelectorAll('.service-card-modern, .job-card, .area-card, .about-grid, .contact-grid, .stats').forEach(el => {
+    document.querySelectorAll('.service-card-modern, .job-card, .area-card, .about-grid, .contact-grid, .stats, .feature-card, .testimonial-card').forEach(el => {
         el.style.opacity = 0;
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -616,34 +672,6 @@ window.addEventListener('scroll', () => {
 
 // ===== SEO ENHANCEMENTS =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Add breadcrumb schema if not present
-    if (!document.querySelector('script[type="application/ld+json"][data-schema="breadcrumb"]')) {
-        const breadcrumbScript = document.createElement('script');
-        breadcrumbScript.type = 'application/ld+json';
-        breadcrumbScript.dataset.schema = 'breadcrumb';
-        breadcrumbScript.textContent = JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.cleanpro-uk.com/"
-            }, {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://www.cleanpro-uk.com/#services"
-            }, {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Contact",
-                "item": "https://www.cleanpro-uk.com/#contact"
-            }]
-        });
-        document.head.appendChild(breadcrumbScript);
-    }
-    
     // Track form submissions in GA4
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -652,6 +680,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 gtag('event', 'form_submission', {
                     'event_category': 'Contact',
                     'event_label': 'Contact Form Submitted',
+                    'value': 1
+                });
+            }
+        });
+    }
+    
+    const supportForm = document.getElementById('supportForm');
+    if (supportForm) {
+        supportForm.addEventListener('submit', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'form_submission', {
+                    'event_category': 'Support',
+                    'event_label': 'Support Form Submitted',
                     'value': 1
                 });
             }
@@ -688,7 +729,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Implement scroll depth tracking
     let scrollDepthTracked = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
         if (!scrollDepthTracked && window.pageYOffset > document.body.scrollHeight * 0.75) {
             if (typeof gtag === 'function') {
                 gtag('event', 'scroll_depth', {
@@ -701,3 +742,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ===== ADDITIONAL HELPER FUNCTIONS =====
+// Function to check if element is in viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to show success notification
+function showSuccess(message, isError = false) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${isError ? 'error' : 'success'}`;
+    notification.innerHTML = `
+        <i class="fas fa-${isError ? 'exclamation-circle' : 'check-circle'}"></i>
+        <span>${message}</span>
+    `;
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
+
+// Add notification styles if not exists
+if (!document.querySelector('#notification-style')) {
+    const style = document.createElement('style');
+    style.id = 'notification-style';
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            animation: slideIn 0.3s ease-out;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .notification.success {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+        .notification.error {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        @keyframes slideIn {
+            from { transform: translateX(150px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+}
