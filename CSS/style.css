@@ -223,8 +223,7 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
-    font-size: 1.05rem;
-    padding: 5px 5px;
+    font-size: 0.95rem;
     position: relative;
     transition: color 0.3s;
     display: flex;
@@ -243,6 +242,10 @@ h1, h2, h3, h4, h5, h6 {
     transition: width 0.3s;
 }
 
+#customer_support {
+    color: var(--light-color);
+}
+
 .nav-menu a:hover,
 .nav-menu a.active {
     color: var(--primary-color);
@@ -252,6 +255,11 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a.active::after {
     width: 100%;
 }
+
+#customer_support:hover {
+    color: var(--white);
+}
+
 
 /* Primary Button in Nav */
 .btn-primary-nav-main {
@@ -471,13 +479,13 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== MODERN HERO SECTION ===== */
 .hero-modern {
     position: relative;
-    height: 100vh;
+    height: 110vh;
     min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 .hero-bg {
@@ -702,6 +710,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 500;
+    height: 5%;
 }
 
 @keyframes bounce {
@@ -739,7 +748,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== MODERN SERVICES SECTION - WITH SLIDE-DOWN HOVER EFFECT ===== */
 .services-modern {
-    padding: 130px 0 110px;
+    padding: 58px 0 110px;
     background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
@@ -756,6 +765,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 80%;
     height: 40%;
     width: 50%;
+}
+
+.Solution_text {
+    margin: 15px 10px;
 }
 
 .service-detail {
@@ -958,6 +971,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 25px;
 }
 
+#services-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .btn-xl {
     padding: 20px 70px;
     font-size: 1.4rem;
@@ -971,6 +993,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
 }
 
+.btn-xl i {
+  padding-right: 20px;
+  padding-bottom: 2px;
+}
+
 .btn-xl:hover {
     box-shadow: 0 10px 35px rgba(34, 139, 34, 0.45);
     transform: translateY(-5px);
@@ -978,7 +1005,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== JOBS SECTION ===== */
 .jobs-section {
-    padding: 130px 0;
+    padding: 15px 0;
     background-color: var(--white);
     position: relative;
     overflow: hidden;
@@ -999,6 +1026,15 @@ h1, h2, h3, h4, h5, h6 {
     animation: scroll 45s linear infinite;
     width: calc(298px * 9 + 35px * 8);
     padding: 25px 0;
+}
+
+#jobs-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .jobs-scroller-track.paused {
@@ -1148,9 +1184,16 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1);
 }
 
+.view_all i{
+    padding-right: 20px;
+    padding-bottom: 2px;
+
+}
+
 .view-all-jobs {
     text-align: center;
     margin-top: 45px;
+    margin-bottom: 65px;
 }
 
 .view-all-jobs .btn {
@@ -1169,10 +1212,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== ABOUT PAGE STYLES ===== */
 .about-page {
-    padding: 130px 0 110px;
+    padding: 130px 0 55px;
     background-color: var(--light-color);
     position: relative;
     overflow: hidden;
+}
+
+#about-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .about-header {
@@ -1184,13 +1236,14 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 70px;
-    align-items: center;
+    align-items: start;
     margin-top: 55px;
 }
 
 .about-text h2 {
     font-size: 2.1rem;
     margin-bottom: 22px;
+    margin-top: 20px;
     color: var(--dark-color);
     position: relative;
     padding-bottom: 12px;
@@ -1253,7 +1306,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     margin-top: 35px;
     background: rgba(255, 255, 255, 0.85);
@@ -1285,7 +1338,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== FAQ SECTION ===== */
 .faq-section {
-    padding: 120px 0;
+    padding: 30px 0;
     background: linear-gradient(to bottom, var(--light-color) 0%, white 100%);
     position: relative;
     overflow: hidden;
@@ -1294,6 +1347,15 @@ h1, h2, h3, h4, h5, h6 {
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
+}
+
+#faq-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .faq-item {
@@ -1370,6 +1432,13 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--white);
     position: relative;
     overflow: hidden;
+}
+
+#testimonials-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .testimonials-grid {
@@ -1454,6 +1523,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--white);
 }
 
+#areas-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .areas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1503,6 +1581,31 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
+.btn-block i {
+    padding-right: 20px;
+    padding-bottom: 2px;
+}
+
+#contact-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#contact_get_in{
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gray);
+}
+
+.contact_sect_des{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 .contact-header {
     text-align: center;
     margin-bottom: 75px;
@@ -1517,8 +1620,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-intro {
     color: var(--gray);
-    font-size: 1.15rem;
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
+#contact_faq {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-top: 25px;
+}
+
+#contact-faq-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#emergency-title{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#support-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    text-align: center;
     margin-bottom: 35px;
+    font-size: 1.35rem;
     line-height: 1.7;
 }
 
@@ -1605,6 +1739,16 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.15);
 }
 
+.contact-faq {
+    padding: 120px 0;
+    background-color: var(--white);
+}
+
+#contact_support {
+    font-size: 1.9rem;
+    margin-top: 25px;
+}
+
 .error-message {
     color: #e74c3c;
     font-size: 0.9rem;
@@ -1643,6 +1787,10 @@ textarea.error {
     box-shadow: 0 6px 20px rgba(34, 139, 34, 0.4);
 }
 
+#btn-block {
+    margin-bottom: 8px;
+}
+
 /* ===== SUPPORT PAGE STYLES ===== */
 .support-page {
     padding: 130px 0 110px;
@@ -1652,7 +1800,7 @@ textarea.error {
 }
 
 .support-features {
-    padding: 120px 0;
+    padding: 50px 0;
     background: linear-gradient(to bottom, var(--light-color) 0%, white 100%);
     position: relative;
     overflow: hidden;
@@ -1701,13 +1849,16 @@ textarea.error {
     line-height: 1.7;
 }
 
-.contact-faq {
-    padding: 120px 0;
-    background-color: var(--white);
+#features-title{
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .emergency-contact {
-    padding: 120px 0;
+    padding: 65px 0;
     background: linear-gradient(to bottom, var(--light-color) 0%, white 100%);
 }
 
