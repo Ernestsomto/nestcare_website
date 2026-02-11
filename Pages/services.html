@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- PRIMARY SEO TITLE -->
-    <title>Our Cleaning Services | NestCare Professional Cleaning UK</title>
+    <title>Our Cleaning Services | NestCare Professional Cleaning Services UK</title>
     
     <!-- META DESCRIPTION -->
-    <meta name="description" content="Explore our comprehensive cleaning services across the UK. Residential, commercial & deep cleaning. Same-day service. 100% insured. Free quotes. Eco-friendly solutions.">
+    <meta name="description" content="⭐️⭐️⭐️⭐️⭐️ Explore our comprehensive cleaning services across the UK. Residential, commercial & deep cleaning. Same-day service. 100% insured. Free quotes. Eco-friendly solutions.">
     
     <!-- UK GEOGRAPHIC TARGETING -->
     <meta name="geo.region" content="GB">
@@ -33,8 +33,8 @@
     <!-- OPEN GRAPH -->
     <meta property="og:locale" content="en_GB">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Our Cleaning Services | NestCare Professional Cleaning UK">
-    <meta property="og:description" content="Explore our comprehensive cleaning services across the UK. Residential, commercial & deep cleaning. Same-day service. 100% insured.">
+    <meta property="og:title" content="Our Cleaning Services | NestCare Professional Cleaning Services UK">
+    <meta property="og:description" content="⭐️⭐️⭐️⭐️⭐️ Explore our comprehensive cleaning services across the UK. Same-day service. 100% insured. Free quotes.">
     <meta property="og:url" content="https://www.nestcarecleaningservices.co.uk/services.html">
     <meta property="og:site_name" content="NestCare Cleaning Services">
     <meta property="og:image" content="https://www.nestcarecleaningservices.co.uk/images/services-og.jpg">
@@ -47,7 +47,7 @@
     <meta name="twitter:site" content="@NestCareCleanUK">
     <meta name="twitter:creator" content="@NestCareCleanUK">
     <meta name="twitter:title" content="Our Cleaning Services | NestCare Professional Cleaning">
-    <meta name="twitter:description" content="Explore our comprehensive cleaning services across the UK. Same-day service. 100% insured.">
+    <meta name="twitter:description" content="⭐️⭐️⭐️⭐️⭐️ Explore our comprehensive cleaning services across the UK. Same-day service. 100% insured.">
     <meta name="twitter:image" content="https://www.nestcarecleaningservices.co.uk/images/services-twitter.jpg">
     
     <!-- SCHEMA.ORG STRUCTURED DATA -->
@@ -73,6 +73,11 @@
           "name": "NestCare Cleaning Services",
           "areaServed": ["GB", "England", "Scotland", "Wales", "Northern Ireland"]
         }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1250"
       }
     }
     </script>
@@ -89,11 +94,12 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- PRELOAD CRITICAL RESOURCES -->
-    <link rel="preload" href="../CSS/style.css" as="style">
+    <link rel="preload" href="../CSS/services-style.css" as="style">
+     <link rel="preload" href="../js/script_service.js" as="script">
     <link rel="preload" href="../js/script.js" as="script">
     
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/services-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     
@@ -118,7 +124,7 @@
             border-color: var(--primary-color) !important;
         }
         
-        /* Enhanced button focus for "Speak With Us" */
+        /* Enhanced button focus for "Customer Support" */
         .btn-primary-nav-main:focus-visible {
             box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 0 0 5px rgba(34, 139, 34, 0.45) !important;
             transform: translateY(-1px) !important;
@@ -142,6 +148,10 @@
         <p><strong>Commercial Cleaning:</strong> Office cleaning, retail space cleaning, restaurant cleaning, medical facility cleaning, and specialized commercial cleaning protocols for businesses nationwide.</p>
         <p><strong>Deep Cleaning:</strong> Intensive deep cleaning services for kitchens, bathrooms, carpets, windows, and entire homes and offices. Perfect for spring cleaning or preparing for guests.</p>
         <p><strong>Emergency Services:</strong> 24/7 rapid response for water damage, fire restoration, and urgent cleaning needs across all major UK cities. Same-day service guaranteed.</p>
+        <p><strong>End of Tenancy Cleaning:</strong> Specialized cleaning for rental properties to secure full security deposits. Professional inspection reports included. Available across all UK regions.</p>
+        <p><strong>Carpet & Upholstery Cleaning:</strong> Professional steam cleaning for all types of carpets and upholstery. Stain removal and sanitization services. Eco-friendly products safe for children and pets.</p>
+        <p><strong>Window Cleaning:</strong> Crystal-clear results for windows and glass surfaces. Streak-free finish with professional techniques. Available for residential and commercial properties nationwide.</p>
+        <p><strong>Eco-Friendly Cleaning:</strong> Green cleaning solutions using non-toxic, biodegradable products. Safe for children, pets, and the environment while delivering superior results.</p>
     </div>
 
     <!-- Page Loader -->
@@ -154,7 +164,7 @@
                 <span>NestCare Services Page</span>
             </div>
             <div class="loader-spinner"></div>
-            <p>Loading our services...</p>
+            <p>Loading our cleaning services...</p>
         </div>
     </div>
 
@@ -171,75 +181,114 @@
             </button>
             <div class="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="/index.html" aria-label="Home">Home</a></li>
+                    <li><a href="index.html" aria-label="Home">Home</a></li>
                     <li><a href="about.html" aria-label="About NestCare">About</a></li>
-                    <li><a href="/index.html#services" aria-label="Our Cleaning Services" class="active">Our Services</a></li>
-                    <li><a href="/index.html#jobs" aria-label="Completed Cleaning Jobs">Completed Jobs</a></li>
+                    <li><a href="services.html" aria-label="Our Cleaning Services" class="active">Our Services</a></li>
+                    <li><a href="index.html#jobs" aria-label="Completed Cleaning Jobs">Completed Jobs</a></li>
                     <li><a href="contact.html" aria-label="Contact NestCare">Contact Us</a></li>
-                    <li><a href="/index.html#areas" aria-label="Areas We Serve in the UK">Where We Serve</a></li>
-                    <li><a href="../Pages/support.html" class="btn-primary-nav-main" aria-label="Customer Support">Customer Support</a></li>
+                    <li><a href="index.html#areas" aria-label="Areas We Serve in the UK">Where We Serve</a></li>
+                    <li><a href="support.html" class="btn-primary-nav-main" aria-label="Customer Support">Customer Support</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Services Header Section -->
-    <!--
-        <section class="services-header" aria-labelledby="services-header-title">
+    <section class="services-header" aria-labelledby="services-title">
         <div class="hero-bg">
-            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Professional cleaning services in UK home">
+            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Professional cleaning services in a sparkling UK home">
             <div class="hero-overlay"></div>
             <div class="hero-blur"></div>
         </div>
         <div class="container">
             <div class="services-header-content">
-                <h1 id="services-header-title" class="section-title">Our Comprehensive Cleaning Services</h1>
-                <p class="section-description">Tailored cleaning solutions for every space and need across the United Kingdom</p>
+                <h1 id="services-title" class="section-title">Our Comprehensive Cleaning Services</h1>
+                <p class="section-description">We provide bespoke cleaning services designed to meet the unique requirements of every environment, whether residential, commercial, or industrial. Understanding that no two spaces are the same, we assess each client’s specific needs and create customised cleaning plans that ensure the highest standards of hygiene, presentation, and safety.</p>
             </div>
         </div>
     </section>
-    -->
-    <!-- Residential Cleaning Section -->
 
+<!-- Residential Cleaning Section -->
     <section id="residential" class="service-detail" aria-labelledby="residential-title">
         <div class="container">
-
-             <div class="services-header-content">
-                <h1 id="services-header-title" class="section-title">Our Comprehensive Cleaning Services</h1>
-                <p class="section-description">Tailored cleaning solutions for every space and need across the United Kingdom</p>
-            </div>
-
             <div class="service-detail-grid">
-                <div class="service-detail-image">
-                    <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Residential house cleaning service in London">
-                </div>
+               
                 <div class="service-detail-content">
                     <h2 id="residential-title" class="section-title">Residential Cleaning</h2>
-                    <p class="section-description">Professional cleaning solutions for your home and family</p>
+                    <p class="section-description">Professional cleaning solutions for your home and family go far beyond simply making a space look tidy. They create a healthier, safer, and more comfortable environment where everyone can thrive. In today’s busy world, maintaining a consistently clean home can be challenging. Professional cleaning services offer expertise, efficiency, and peace of mind—ensuring your living space supports your family’s well-being.</p>
                     
                     <h3>What We Include</h3>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Dusting and wiping all surfaces</li>
-                        <li><i class="fas fa-check-circle"></i> Vacuuming and mopping floors</li>
-                        <li><i class="fas fa-check-circle"></i> Cleaning bathrooms and kitchens</li>
-                        <li><i class="fas fa-check-circle"></i> Emptying trash bins</li>
-                        <li><i class="fas fa-check-circle"></i> Cleaning mirrors and glass surfaces</li>
-                        <li><i class="fas fa-check-circle"></i> Eco-friendly cleaning products</li>
-                    </ul>
-                    
-                    <h3>Service Options</h3>
+                    <div class="what_we_do service_list Services_detailing">
+                                <div>
+                                    <ul class="service-list">
+                                        <li>
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Dusting and wiping all surfaces</span>
+                                                <p class="service-description">We meticulously dust all surfaces including furniture, shelves, picture frames, and decorative items. Our thorough wiping removes dust, allergens, and grime from all exposed surfaces throughout your home.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Vacuuming and mopping floors</span>
+                                                <p class="service-description">Professional vacuuming of all carpets and rugs to remove dirt and pet hair. Hard floors are thoroughly mopped with eco-friendly cleaning solutions, leaving them spotless and streak-free.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Cleaning bathrooms and kitchens</span>
+                                                <p class="service-description">Comprehensive cleaning of all bathroom and kitchen surfaces including sinks, countertops, toilets, and tiled areas. We sanitize high-touch surfaces and ensure all fixtures shine.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Emptying trash bins</span>
+                                                <p class="service-description">All trash bins throughout your home are emptied and replaced with fresh liners. We dispose of waste responsibly and leave your spaces clean and fresh.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Cleaning mirrors and glass surfaces</span>
+                                                <p class="service-description">All mirrors, windows, and glass surfaces are cleaned to a sparkling finish using professional techniques. We achieve streak-free results with specialized glass cleaning products.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Eco-friendly cleaning products</span>
+                                                <p class="service-description">We use only non-toxic, biodegradable cleaning products that are safe for children, pets, and the environment. These products are highly effective while protecting your family's health.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                        <div class="service-detail-image">
+                            <img src="https://i.pinimg.com/1200x/7d/2e/f3/7d2ef36544799b6eabfdf6518c80165a.jpg" alt="Residential house cleaning service in London">
+                        </div> 
+                    </div>              
+                
+                 <h3>Service Options</h3>
                     <div class="service-options">
                         <div class="option-card">
                             <h4>Regular Cleaning</h4>
-                            <p>Ideal for maintaining your home's cleanliness with weekly or bi-weekly visits. Perfect for busy families who want a consistently clean home.</p>
+                            <p>Ideal for maintaining your home's cleanliness with weekly or bi-weekly visits. Perfect for busy families who want a consistently clean home. Includes routine maintenance of all rooms and surfaces.</p>
                         </div>
                         <div class="option-card">
                             <h4>Deep Cleaning</h4>
-                            <p>Intensive cleaning that reaches every corner. Perfect for spring cleaning or preparing your home for guests. Includes areas often missed in regular cleaning.</p>
+                            <p>Intensive cleaning that reaches every corner. Perfect for spring cleaning or preparing your home for guests. Includes areas often missed in regular cleaning such as behind appliances, inside cabinets, and ceiling fans.</p>
                         </div>
                         <div class="option-card">
                             <h4>Move-In/Out Cleaning</h4>
-                            <p>Specialized cleaning for tenants moving in or out. Helps secure full security deposits and prepares homes for new residents.</p>
+                            <p>Specialized cleaning for tenants moving in or out. Helps secure full security deposits and prepares homes for new residents. Professional inspection reports included to ensure all areas meet standards.</p>
                         </div>
                     </div>
                     
@@ -253,101 +302,288 @@
         </div>
     </section>
 
-    <!-- Commercial Cleaning Section -->
-    <section id="commercial" class="service-detail" aria-labelledby="commercial-title">
+
+<!-- Commercial Cleaning Section -->
+    <section id="residential" class="service-detail" aria-labelledby="residential-title">
         <div class="container">
             <div class="service-detail-grid">
+               
                 <div class="service-detail-content">
-                    <h2 id="commercial-title" class="section-title">Commercial Cleaning</h2>
-                    <p class="section-description">Professional cleaning solutions for your business and workplace</p>
+                    <h2 id="residential-title" class="section-title">Commercial Cleaning</h2>
+                    <p class="section-description">Professional cleaning solutions for your home and family go far beyond simply making a space look tidy. They create a healthier, safer, and more comfortable environment where everyone can thrive. In today’s busy world, maintaining a consistently clean home can be challenging. Professional cleaning services offer expertise, efficiency, and peace of mind—ensuring your living space supports your family’s well-being.</p>
                     
                     <h3>What We Include</h3>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Daily office cleaning and maintenance</li>
-                        <li><i class="fas fa-check-circle"></i> Kitchen and break room sanitization</li>
-                        <li><i class="fas fa-check-circle"></i> Bathroom cleaning and restocking</li>
-                        <li><i class="fas fa-check-circle"></i> Floor care and carpet maintenance</li>
-                        <li><i class="fas fa-check-circle"></i> Window and glass cleaning</li>
-                        <li><i class="fas fa-check-circle"></i> Waste removal and recycling</li>
-                    </ul>
-                    
+                    <div class="what_we_do service_list_2 Services_detailing_2">
+                                <div>
+                                    <ul class="service-list_2">
+                                        <li>
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Daily office cleaning and maintenance</span>
+                                                <p class="service-description">We meticulously dust all surfaces including furniture, shelves, picture frames, and decorative items. Our thorough wiping removes dust, allergens, and grime from all exposed surfaces throughout your home.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Kitchen and break room sanitization</span>
+                                                <p class="service-description">Professional vacuuming of all carpets and rugs to remove dirt and pet hair. Hard floors are thoroughly mopped with eco-friendly cleaning solutions, leaving them spotless and streak-free.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Cleaning bathrooms and kitchens</span>
+                                                <p class="service-description">Comprehensive cleaning of all bathroom and kitchen surfaces including sinks, countertops, toilets, and tiled areas. We sanitize high-touch surfaces and ensure all fixtures shine.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Floor care and carpet maintenance</span>
+                                                <p class="service-description">All trash bins throughout your home are emptied and replaced with fresh liners. We dispose of waste responsibly and leave your spaces clean and fresh.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title"> Window and glass cleaning</span>
+                                                <p class="service-description">All mirrors, windows, and glass surfaces are cleaned to a sparkling finish using professional techniques. We achieve streak-free results with specialized glass cleaning products.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Waste removal and recycling</span>
+                                                <p class="service-description">We use only non-toxic, biodegradable cleaning products that are safe for children, pets, and the environment. These products are highly effective while protecting your family's health.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                        <div class="service-detail-image">
+                            <img src="https://i.pinimg.com/1200x/7d/2e/f3/7d2ef36544799b6eabfdf6518c80165a.jpg" alt="Residential house cleaning service in London">
+                        </div> 
+                    </div>
+
                     <h3>Service Options</h3>
                     <div class="service-options">
                         <div class="option-card">
                             <h4>Office Cleaning</h4>
-                            <p>Flexible scheduling for your business hours. Maintain a professional, clean environment for employees and clients.</p>
+                             <p>Flexible scheduling for your business hours. Maintain a professional, clean environment for employees and clients. Perfect for corporate offices, co-working spaces, and business centers.</p>
                         </div>
                         <div class="option-card">
-                            <h4>Retail Space Cleaning</h4>
-                            <p>Specialized cleaning for retail environments including customer areas, stock rooms, and restrooms.</p>
+                           <h4>Retail Space Cleaning</h4>
+                            <p>Specialized cleaning for retail environments including customer areas, stock rooms, and restrooms. Professional appearance maintenance for customer-facing businesses.</p>
                         </div>
                         <div class="option-card">
-                            <h4>Medical Facility Cleaning</h4>
-                            <p>HIPAA-compliant cleaning protocols for healthcare environments with specialized disinfection procedures.</p>
+                              <h4>Medical Facility Cleaning</h4>
+                            <p>HIPAA-compliant cleaning protocols for healthcare environments with specialized disinfection procedures. Meeting all health and safety requirements for medical facilities.</p>
                         </div>
                     </div>
                     
                     <div class="service-cta">
-                        <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book commercial cleaning service">
-                            <i class="fas fa-building"></i> Book Commercial Clean
-                        </a>
-                        <a href="pricing.html" class="btn btn-secondary btn-lg" aria-label="View commercial cleaning pricing">
-                            <i class="fas fa-pound-sign"></i> View Pricing
+                        <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book Commercial cleaning service">
+                            <i class="fas fa-calendar-check"></i> Book Commercial Clean
                         </a>
                     </div>
-                </div>
-                <div class="service-detail-image">
-                    <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Commercial office cleaning service in Manchester">
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Deep Cleaning Section -->
-    <section id="deep" class="service-detail" aria-labelledby="deep-title">
+    <!--Deep Cleaning Section -->
+    <section id="residential" class="service-detail" aria-labelledby="residential-title">
         <div class="container">
             <div class="service-detail-grid">
-                <div class="service-detail-image">
-                    <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Deep cleaning service for UK homes">
-                </div>
+               
                 <div class="service-detail-content">
-                    <h2 id="deep-title" class="section-title">Deep Cleaning</h2>
-                    <p class="section-description">Intensive cleaning that reaches every corner of your space</p>
+                    <h2 id="residential-title" class="section-title">Deep Cleaning</h2>
+                    <p class="section-description">Intensive cleaning that reaches every corner of your space. Our intensive cleaning service is designed to go beyond surface-level tidying, delivering a thorough and detailed clean that restores freshness, hygiene, and comfort to your space. We focus on every corner including the areas that are often overlooked ensuring no dust, grime, or buildup is left behind.</p>
                     
                     <h3>What We Include</h3>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Inside cabinets and appliances</li>
-                        <li><i class="fas fa-check-circle"></i> Behind furniture and appliances</li>
-                        <li><i class="fas fa-check-circle"></i> Ceiling fans and light fixtures</li>
-                        <li><i class="fas fa-check-circle"></i> Baseboards and window sills</li>
-                        <li><i class="fas fa-check-circle"></i> Tile grout and bathroom fixtures</li>
-                        <li><i class="fas fa-check-circle"></i> Air vents and filters</li>
-                    </ul>
-                    
-                    <h3>Service Options</h3>
+                    <div class="what_we_do service_list Services_detailing">
+                                <div>
+                                    <ul class="service-list">
+                                        <li>
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Inside cabinets and appliances</span>
+                                                <p class="service-description">We clean inside all cabinets, drawers, and appliances including refrigerators, microwaves, and ovens. This includes wiping down interior surfaces and removing any built-up grime or food residue.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Behind furniture and appliances</span>
+                                                <p class="service-description">We move furniture and appliances to clean behind them, ensuring all surfaces are thoroughly cleaned and dust-free.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Ceiling fans and light fixtures</span>
+                                                <p class="service-description">We carefully clean all ceiling fans and light fixtures, removing dust and grime to ensure they shine and function properly.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Emptying trash bins</span>
+                                                <p class="service-description">All trash bins throughout your home are emptied and replaced with fresh liners. We dispose of waste responsibly and leave your spaces clean and fresh.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Ceiling fans and light fixtures</span>
+                                                <p class="service-description">We carefully clean all ceiling fans and light fixtures, removing dust and grime to ensure they shine and function properly.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Air vents and filters</span>
+                                                <p class="service-description">We clean all air vents and replace filters to ensure optimal airflow and indoor air quality. This service helps maintain a healthy and comfortable living environment.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                        <div class="service-detail-image">
+                            <img src="https://i.pinimg.com/1200x/7d/2e/f3/7d2ef36544799b6eabfdf6518c80165a.jpg" alt="Residential house cleaning service in London">
+                        </div> 
+                    </div>              
+                
+                 <h3>Service Options</h3>
                     <div class="service-options">
                         <div class="option-card">
                             <h4>Kitchen Deep Clean</h4>
-                            <p>Comprehensive cleaning of all kitchen surfaces, appliances, and hard-to-reach areas. Includes degreasing and sanitizing.</p>
+                            <p>Thorough cleaning of all kitchen surfaces, appliances, and fixtures. Includes scrubbing countertops, cleaning inside and outside of appliances, sanitizing sinks and stovetops, and removing any grease or grime buildup.</p>
                         </div>
                         <div class="option-card">
                             <h4>Bathroom Deep Clean</h4>
-                            <p>Intensive cleaning of all bathroom surfaces, including tile grout, shower heads, and ventilation systems.</p>
+                            <p>Comprehensive cleaning of all bathroom surfaces, fixtures, and appliances. Includes sanitizing toilets, sinks, tubs, and showers, removing soap scum and mildew, and disinfecting all surfaces for a spotless and hygienic environment.</p>
                         </div>
                         <div class="option-card">
                             <h4>Whole Home Deep Clean</h4>
-                            <p>Complete deep cleaning of every room in your home. Perfect for spring cleaning or preparing for guests.</p>
+                            <p>
+                            <p>Complete deep cleaning of every room in your home. Perfect for spring cleaning or preparing for guests. Includes all areas often missed in regular cleaning.</p>
                         </div>
                     </div>
                     
                     <div class="service-cta">
-                        <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book deep cleaning service">
-                            <i class="fas fa-spa"></i> Book Deep Clean
-                        </a>
-                        <a href="pricing.html" class="btn btn-secondary btn-lg" aria-label="View deep cleaning pricing">
-                            <i class="fas fa-pound-sign"></i> View Pricing
+                        <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book residential cleaning service">
+                            <i class="fas fa-calendar-check"></i> Book Deep Clean
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Emergency Cleaning Section -->
+    <section id="residential" class="service-detail" aria-labelledby="residential-title">
+        <div class="container">
+            <div class="service-detail-grid">
+               
+                <div class="service-detail-content">
+                    <h2 id="residential-title" class="section-title">Emergency Cleaning Services</h2>
+                    <p class="section-description">Need a quick clean in a hurry? Our emergency cleaning services are available 24/7 to help you get your home or office spotless in no time. Whether it's a last-minute party cleanup, an unexpected spill, or an urgent move-in situation, we're here to help.</p>
+                    
+                    <h3>What We Include</h3>
+                    <div class="what_we_do service_list_2 Services_detailing_2">
+                                <div>
+                                    <ul class="service-list_2">
+                                        <li>
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title"> Water damage cleanup and drying</span>
+                                                <p class="service-description">We handle all aspects of water damage cleanup, from removing standing water to thoroughly drying affected areas. Our team uses industrial-grade equipment to ensure complete restoration and prevent mold growth.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title"> Fire restoration and soot removal</span>
+                                                <p class="service-description">Our fire restoration services include complete soot and smoke damage cleanup. We remove all traces of soot, clean affected surfaces, and restore your property to its pre-fire condition using specialized techniques and equipment.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Flood damage remediation</span>
+                                                <p class="service-description">We specialize in flood damage restoration, including water extraction, structural drying, and complete cleanup of affected areas. Our team handles all aspects of flood damage remediation to restore your property to its original condition.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Urgent spill cleanup</span>
+                                                <p class="service-description">We provide immediate response to urgent spill situations, including liquid spills, accidents, and emergency cleanup needs. Our team is available 24/7 to address any urgent cleaning requirements.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="service-item">
+                                            <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Post-accident cleaning</span>
+                                                <p class="service-description">All mirrors, windows, and glass surfaces are cleaned to a sparkling finish using professional techniques. We achieve streak-free results with specialized glass cleaning products.</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                           
+                                            <div class="service-item">
+                                             <i class="fas fa-check-circle"></i>
+                                                <span class="service-title">Sanitization and disinfection </span>
+                                                <p class="service-description">We provide thorough sanitization and disinfection services to eliminate harmful bacteria, viruses, and pathogens. Our process includes using EPA-approved disinfectants and following industry best practices to ensure a safe and healthy environment.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                        <div class="service-detail-image">
+                            <img src="https://i.pinimg.com/1200x/7d/2e/f3/7d2ef36544799b6eabfdf6518c80165a.jpg" alt="Residential house cleaning service in London">
+                        </div> 
+                    </div>
+
+                    <h3>Service Options</h3>
+                    <div class="service-options">
+                        <div class="option-card">
+                            <h4>Office Cleaning</h4>
+                             <p>Flexible scheduling for your business hours. Maintain a professional, clean environment for employees and clients. Perfect for corporate offices, co-working spaces, and business centers.</p>
+                        </div>
+                        <div class="option-card">
+                           <h4>Retail Space Cleaning</h4>
+                            <p>Specialized cleaning for retail environments including customer areas, stock rooms, and restrooms. Professional appearance maintenance for customer-facing businesses.</p>
+                        </div>
+                        <div class="option-card">
+                              <h4>Medical Facility Cleaning</h4>
+                            <p>HIPAA-compliant cleaning protocols for healthcare environments with specialized disinfection procedures. Meeting all health and safety requirements for medical facilities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book Commercial cleaning service">
+                            <i class="fas fa-calendar-check"></i> Book Commercial Clean
+                        </a>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -375,15 +611,15 @@
                     <div class="service-options">
                         <div class="option-card">
                             <h4>Water Damage</h4>
-                            <p>Immediate response to flooding, pipe bursts, or water leaks. Professional drying and restoration services.</p>
+                            <p>Immediate response to flooding, pipe bursts, or water leaks. Professional drying and restoration services. Available across all major UK cities with same-day service.</p>
                         </div>
                         <div class="option-card">
                             <h4>Fire Restoration</h4>
-                            <p>Specialized cleaning for smoke and soot damage. Professional restoration to return your space to normal.</p>
+                            <p>Specialized cleaning for smoke and soot damage. Professional restoration to return your space to normal. 24/7 availability for urgent situations.</p>
                         </div>
                         <div class="option-card">
                             <h4>Urgent Spill Cleanup</h4>
-                            <p>Rapid response for chemical spills, biohazards, or other urgent cleaning situations requiring immediate attention.</p>
+                            <p>Rapid response for chemical spills, biohazards, or other urgent cleaning situations requiring immediate attention. Professional safety protocols followed.</p>
                         </div>
                     </div>
                     
@@ -428,15 +664,15 @@
                     <div class="service-options">
                         <div class="option-card">
                             <h4>Standard End of Tenancy</h4>
-                            <p>Comprehensive cleaning for standard rental properties. Includes all rooms, kitchen, bathroom, and common areas.</p>
+                            <p>Comprehensive cleaning for standard rental properties. Includes all rooms, kitchen, bathroom, and common areas. Perfect for securing security deposits.</p>
                         </div>
                         <div class="option-card">
                             <h4>Premium Deposit Protection</h4>
-                            <p>Enhanced cleaning with professional inspection report to maximize security deposit returns.</p>
+                            <p>Enhanced cleaning with professional inspection report to maximize security deposit returns. Includes extra attention to detail and thorough cleaning.</p>
                         </div>
                         <div class="option-card">
                             <h4>Move-Out Preparation</h4>
-                            <p>Specialized service to prepare your rental property for move-out with landlord approval.</p>
+                            <p>Specialized service to prepare your rental property for move-out with landlord approval. Ensures all areas meet rental agreement standards.</p>
                         </div>
                     </div>
                     
@@ -444,10 +680,60 @@
                         <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book end of tenancy cleaning service">
                             <i class="fas fa-home"></i> Book Tenancy Clean
                         </a>
-                        <a href="pricing.html" class="btn btn-secondary btn-lg" aria-label="View end of tenancy cleaning pricing">
+                        <a href="#" class="btn btn-secondary btn-lg" aria-label="View end of tenancy cleaning pricing">
                             <i class="fas fa-pound-sign"></i> View Pricing
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carpet & Window Cleaning Section -->
+    <section id="specialized" class="service-detail" aria-labelledby="specialized-title">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-content">
+                    <h2 id="specialized-title" class="section-title">Carpet & Window Cleaning</h2>
+                    <p class="section-description">Specialized services for deep carpet and crystal-clear window cleaning</p>
+                    
+                    <h3>What We Include</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Professional carpet steam cleaning</li>
+                        <li><i class="fas fa-check-circle"></i> Streak-free window cleaning</li>
+                        <li><i class="fas fa-check-circle"></i> Stain removal and sanitization</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced cleaning technology</li>
+                        <li><i class="fas fa-check-circle"></i> Eco-friendly products</li>
+                        <li><i class="fas fa-check-circle"></i> Professional equipment</li>
+                    </ul>
+                    
+                    <h3>Service Options</h3>
+                    <div class="service-options">
+                        <div class="option-card">
+                            <h4>Carpet Cleaning</h4>
+                            <p>Professional steam cleaning for all types of carpets and rugs. Removes stains, allergens, and odors with eco-friendly products. Perfect for pet owners and families with allergies.</p>
+                        </div>
+                        <div class="option-card">
+                            <h4>Window Cleaning</h4>
+                            <p>Crystal-clear results for windows and glass surfaces. Streak-free finish using professional techniques and tools. Includes interior and exterior window cleaning.</p>
+                        </div>
+                        <div class="option-card">
+                            <h4>Upholstery Cleaning</h4>
+                            <p>Deep cleaning for sofas, chairs, and fabric furniture. Restores appearance and eliminates allergens. Using gentle, effective cleaning methods.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn btn-primary btn-lg" aria-label="Book specialized cleaning service">
+                            <i class="fas fa-brush"></i> Book Specialized Clean
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-lg" aria-label="View specialized cleaning pricing">
+                            <i class="fas fa-pound-sign"></i> View Pricing
+                        </a>
+                    </div>
+                </div>
+                <div class="service-detail-image">
+                    <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Carpet and window cleaning service">
                 </div>
             </div>
         </div>
@@ -457,7 +743,7 @@
     <section class="service-benefits" aria-labelledby="benefits-title">
         <div class="container">
             <h2 id="benefits-title" class="section-title">Why Choose Our Cleaning Services</h2>
-            <p class="section-description">Experience the difference with our professional approach</p>
+            <p class="section-description">Experience exceptional service with our professional approach</p>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -552,82 +838,118 @@
                             <td>Entire property deep clean</td>
                             <td>Yes</td>
                         </tr>
+                        <tr>
+                            <td>Carpet Cleaning</td>
+                            <td>As needed, Quarterly</td>
+                            <td>£50-£150</td>
+                            <td>Carpets, rugs</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Window Cleaning</td>
+                            <td>Monthly, Quarterly</td>
+                            <td>£30-£80</td>
+                            <td>Windows, glass surfaces</td>
+                            <td>Yes</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section for Services -->
-    <section class="service-faq" aria-labelledby="service-faq-title">
+    <!-- Service FAQ Section -->
+    <section class="contact-faq" aria-labelledby="contact-faq-title">
         <div class="container">
-            <h2 id="service-faq-title" class="section-title">Service Frequently Asked Questions</h2>
+            <h2 id="contact-faq-title" class="section-title">Service Frequently Asked Questions</h2>
             <p class="section-description">Find quick answers to common questions about our cleaning services</p>
             
             <div class="faq-container">
                 <!-- FAQ Item 1 -->
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq1">
-                        <span>How much does residential cleaning cost in the UK?</span>
+                        <span>How much do your cleaning services cost in the UK?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer" id="faq1" hidden>
-                        <p>Our residential cleaning services start from £15 per hour for regular domestic cleaning. Deep cleaning starts from £25 per hour. Prices may vary based on the size of your home, specific requirements, and frequency of service. We offer free, no-obligation quotes tailored to your specific needs and budget.</p>
+                        <p>Our cleaning services start from £15 per hour for regular domestic cleaning. Deep cleaning starts from £25 per hour. Commercial cleaning prices vary based on size and requirements. We offer free, no-obligation quotes tailored to your specific needs and budget.</p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 2 -->
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq2">
-                        <span>What cleaning products do you use for residential services?</span>
+                        <span>Are your cleaning professionals insured and vetted?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer" id="faq2" hidden>
-                        <p>We use eco-friendly, non-toxic cleaning products that are safe for children, pets, and the environment. Our products effectively eliminate germs and allergens without harsh chemicals. We also offer specialized products for specific cleaning needs upon request. All our products are biodegradable and environmentally responsible.</p>
+                        <p>Yes, all our cleaning professionals are fully insured with public liability insurance up to £5 million. They undergo rigorous background checks including DBS checks, reference verification, and comprehensive training before joining our team.</p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 3 -->
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq3">
-                        <span>How often should I schedule regular cleaning?</span>
+                        <span>What areas of the UK do you serve?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer" id="faq3" hidden>
-                        <p>The frequency depends on your specific needs, household size, and lifestyle. Most residential clients schedule weekly or bi-weekly cleaning. Families with children or pets may prefer more frequent service. We recommend discussing your specific situation with our team to determine the optimal schedule for your space and budget.</p>
+                        <p>We provide professional cleaning services across the entire United Kingdom including London, Manchester, Birmingham, Glasgow, Liverpool, Bristol, Leeds, Edinburgh, Cardiff and all major cities and towns. We're constantly expanding our coverage areas.</p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 4 -->
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq4">
-                        <span>Do you provide commercial cleaning services?</span>
+                        <span>Do you provide eco-friendly cleaning options?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer" id="faq4" hidden>
-                        <p>Yes! We provide comprehensive commercial cleaning services for offices, retail spaces, restaurants, medical facilities, and more. Our commercial services include daily maintenance, deep cleaning, and specialized protocols. We offer flexible scheduling to work around your business hours and provide customized solutions for different industries.</p>
+                        <p>Absolutely! We offer a full range of eco-friendly cleaning services using non-toxic, biodegradable products that are safe for children, pets, and the environment. Just request our green cleaning package when booking.</p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 5 -->
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq5">
-                        <span>Are your commercial cleaning staff trained differently?</span>
+                        <span>How often should I schedule regular cleaning?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer" id="faq5" hidden>
-                        <p>Our commercial cleaning professionals receive specialized training in addition to our standard residential cleaning protocols. This includes understanding commercial environments, different equipment requirements, and industry-specific cleaning standards. They're also trained in customer service for commercial settings and have experience with various business types.</p>
+                        <p>The frequency depends on your specific needs, household size, and lifestyle. Most residential clients schedule weekly or bi-weekly cleaning. Families with children or pets may prefer more frequent service. We recommend discussing your situation with our team to determine the optimal schedule.</p>
                     </div>
                 </div>
                 
                 <!-- FAQ Item 6 -->
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq6">
-                        <span>What areas do you cover for commercial cleaning?</span>
+                        <span>Can I cancel or reschedule my cleaning appointment?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer" id="faq6" hidden>
-                        <p>We provide commercial cleaning services across the entire United Kingdom including London, Manchester, Birmingham, Glasgow, Liverpool, Bristol, Leeds, Edinburgh, Cardiff and all major cities and towns. We serve office buildings, retail spaces, restaurants, healthcare facilities, schools, and various commercial environments throughout the UK.</p>
+                        <p>Yes, you can cancel or reschedule your appointment with 24 hours notice. We understand that life can be unpredictable, so we offer flexibility to accommodate your changing schedule. Changes can be made through our website, phone, or email.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq7">
+                        <span>What if I'm not satisfied with the service?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq7" hidden>
+                        <p>We stand behind our 100% satisfaction guarantee. If you're not completely satisfied with our service, please contact us within 24 hours and we'll return to address any concerns at no additional charge. Our goal is to exceed your expectations every time.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 8 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq8">
+                        <span>Do you supply cleaning products and equipment?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer" id="faq8" hidden>
+                        <p>Yes, our cleaning professionals bring all necessary supplies, equipment, and eco-friendly products to perform the job. However, if you prefer to use your own products, we're happy to accommodate your request. Just let us know in advance when booking your service.</p>
                     </div>
                 </div>
             </div>
@@ -669,6 +991,7 @@
                         <li><a href="#deep" aria-label="Deep Cleaning">Deep Cleaning</a></li>
                         <li><a href="#emergency" aria-label="Emergency Services">Emergency Services</a></li>
                         <li><a href="#end-tenancy" aria-label="End of Tenancy Cleaning">End of Tenancy Cleaning</a></li>
+                        <li><a href="#specialized" aria-label="Carpet & Window Cleaning">Carpet & Window Cleaning</a></li>
                     </ul>
                 </div>
                 
@@ -699,6 +1022,19 @@
         <span class="whatsapp-tooltip">Chat with us</span>
     </a>
 
+    <!-- Success Modal -->
+    <div class="form-success-modal" id="successModal">
+        <div class="success-content">
+            <button class="close-modal" aria-label="Close success message">&times;</button>
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="success-title">Thank You for Contacting Us!</h2>
+            <p class="success-message">We've received your message and will get back to you shortly. Our team typically responds within 2-4 hours during business hours. For urgent matters, please call our emergency line at 020 1234 5678.</p>
+            <button class="success-btn" id="closeSuccessModal" aria-label="Close this message">Got it, thanks!</button>
+        </div>
+    </div>
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -712,6 +1048,9 @@
       });
     </script>
 
+
+    <script src="../js/script_service.js"></script>
     <script src="../js/script.js"></script>
+    
 </body>
 </html>
