@@ -175,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo img {
-    border-radius: 60%;
+    border-radius: 40%;
     height: 155px;
     width: auto;
     transition: transform 0.3s ease;
