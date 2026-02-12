@@ -175,18 +175,19 @@
                     <li><a href="/Pages/index.html#jobs" aria-label="Completed Cleaning Jobs" class="active">Completed Jobs</a></li>
                     <li><a href="contact.html" aria-label="Contact NestCare">Contact Us</a></li>
                     <li><a href="/index.html#areas" aria-label="Areas We Serve in the UK">Where We Serve</a></li>
-                    <li><a href="support.html" class="btn-primary-nav-main" aria-label="Customer Support">Customer Support</a></li>
+                    <li><a href="support.html" class="btn-primary-nav-main" id="customer_support" aria-label="Customer Support">Customer Support</a></li>
                 </ul>
             </div>
         </div>
     </nav>
    
      <!-- Completed Jobs Section -->
-    <section id="jobs" class="jobs-section" aria-labelledby="jobs-title">
+
+      <section id="jobs" class="jobs-section" aria-labelledby="jobs-title">
         <div class="container">
             <div class="section-header">
-                <h2 id="jobs-title" class="section-title">What Some of Our Customers Say About Us</h2>
-                <p class="section-description">Real transformations from our dedicated cleaning professionals in London, Manchester, Birmingham and beyond</p>
+                <h2 id="jobs-title" class="section-title">Our Completed Jobs Across the UK</h2>
+                <p class="section-description">Our expert teams take pride in delivering visible results that truly make a difference. From revitalising busy offices and commercial spaces to restoring homes to a spotless, refreshed condition, every project is handled with care, precision, and professionalism.</p>
             </div>
             
             <div class="jobs-scroller-container">
@@ -194,7 +195,7 @@
                     <!-- Job 1 -->
                     <div class="job-card">
                         <div class="job-image">
-                            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Kitchen deep clean in London home">
+                            <img src="https://i.pinimg.com/736x/2e/5b/f1/2e5bf1e01298c62acff4c17bac476b97.jpg" alt="Kitchen deep clean in London home">
                             <div class="job-badge">Kitchen Deep Clean</div>
                         </div>
                         <div class="job-content">
@@ -218,7 +219,7 @@
                     <!-- Job 2 -->
                     <div class="job-card">
                         <div class="job-image">
-                            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Office cleaning in Manchester">
+                            <img src="https://i.pinimg.com/736x/b0/c1/58/b0c158dd8b5ad0543195837215cce725.jpg" alt="Office cleaning in Manchester">
                             <div class="job-badge">Commercial Space</div>
                         </div>
                         <div class="job-content">
@@ -242,7 +243,7 @@
                     <!-- Job 3 -->
                     <div class="job-card">
                         <div class="job-image">
-                            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Bathroom cleaning in Birmingham home">
+                            <img src="https://i.pinimg.com/1200x/b6/0b/15/b60b157dc950e748b4250a342a9b2704.jpg" alt="Bathroom cleaning in Birmingham home">
                             <div class="job-badge">Bathroom Refresh</div>
                         </div>
                         <div class="job-content">
@@ -266,7 +267,7 @@
                     <!-- Job 4 -->
                     <div class="job-card">
                         <div class="job-image">
-                            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Post construction cleaning in Glasgow">
+                            <img src="https://i.pinimg.com/1200x/18/9a/e1/189ae1f696a4cec64cfad8a4b5ebe347.jpg" alt="Post construction cleaning in Glasgow">
                             <div class="job-badge">Post-Construction</div>
                         </div>
                         <div class="job-content">
@@ -290,7 +291,7 @@
                     <!-- Job 5 -->
                     <div class="job-card">
                         <div class="job-image">
-                            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Carpet cleaning in Edinburgh home">
+                            <img src="https://i.pinimg.com/1200x/13/a7/17/13a71719a41d143264217a5e1f30466f.jpg" alt="Carpet cleaning in Edinburgh home">
                             <div class="job-badge">Carpet Restoration</div>
                         </div>
                         <div class="job-content">
@@ -314,7 +315,7 @@
                     <!-- Job 6 -->
                     <div class="job-card">
                         <div class="job-image">
-                            <img src="https://i.pinimg.com/736x/8d/fd/a7/8dfda7bcabad808e706634818c776d6f.jpg" alt="Move out cleaning in Cardiff apartment">
+                            <img src="https://i.pinimg.com/1200x/ee/1a/ee/ee1aee0f3c5157e98a35139160a158d8.jpg" alt="Move out cleaning in Cardiff apartment">
                             <div class="job-badge">Move-Out Special</div>
                         </div>
                         <div class="job-content">
@@ -407,8 +408,23 @@
                 </div>
             </div>
             
+            <div class="scroller-controls">
+                <button class="scroller-btn prev-btn" id="prevBtn" aria-label="Previous jobs">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="scroller-btn next-btn" id="nextBtn" aria-label="Next jobs">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="view-all-jobs">
+                <a href="Pages/Testimonials.html" class="btn btn-secondary view_all" aria-label="View our full portfolio of cleaning jobs">
+                    <i class="fas fa-images"></i> View Our Full Portfolio
+                </a>
+            </div>
         </div>
     </section>
+
     <!-- Testimonials Section -->
     <section class="testimonials-section" aria-labelledby="testimonials-title">
         <div class="container">
@@ -616,5 +632,6 @@
     </script>
 
     <script src="../js/script.js"></script>
+    <script src="../js/script_service.js"></script>
 </body>
 </html>
