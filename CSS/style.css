@@ -1037,7 +1037,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 2.8rem;
     margin-bottom: 15px;
-    margin-top: 40px;
+    margin-top: 70px;
     color: var(--dark-color);
     font-weight: 800;
     font-family: 'Montserrat', sans-serif;
@@ -1587,7 +1587,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== CONTACT PAGE STYLES ===== */
 .contact-page {
-    padding: 130px 0 110px;
+    padding: 100px 0 110px;
     background: linear-gradient(to bottom, var(--light-color) 0%, white 100%);
     position: relative;
     overflow: hidden;
@@ -1699,6 +1699,8 @@ h1, h2, h3, h4, h5, h6 {
 .info-item p {
     color: var(--gray);
     line-height: 1.7;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 1.05rem;
 }
 
@@ -1710,7 +1712,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .info-item a {
     color: var(--primary-color);
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
     transition: color 0.3s;
 }
@@ -2990,6 +2992,10 @@ button[type="submit"]:disabled {
     .section-title {
         font-size: 2.1rem;
     }
+
+    #contact-title {
+        font-size: 2.1rem;
+    }
     
     .section-description {
         font-size: 1.05rem;
@@ -3083,12 +3089,12 @@ button[type="submit"]:disabled {
     }
     
     .info-item {
-        gap: 15px;
+        gap: 5px;
     }
     
     .info-item i {
-        font-size: 1.6rem;
-        min-width: 40px;
+        font-size: 1.2rem;
+        min-width: 25px;
     }
     
     .info-item h4 {
@@ -3189,8 +3195,8 @@ button[type="submit"]:disabled {
     }
     
     .back-to-top {
-        bottom: 95px;
-        right: 23px;
+        bottom: 85px;
+        right: 20px;
         width: 40px;
         height: 40px;
         font-size: 1rem;
