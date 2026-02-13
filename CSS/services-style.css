@@ -177,8 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo img {
-    border-radius: 40%;
-    height: 155px;
+    height: 100px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -264,7 +263,6 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 10px 24px;
-    margin: 4px 2px 4px 2px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
@@ -885,6 +883,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--gray);
     text-align: center;
     margin-top: 15px;
+    margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
@@ -1304,7 +1303,7 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top {
     position: fixed;
     bottom: 110px;
-    right: 35px;
+    right: 43px;
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -2059,7 +2058,7 @@ button[type="submit"]:disabled {
     }
     
     .logo img {
-        height: 45px;
+        height: 80px;
     }
     
     .hamburger {
@@ -2113,13 +2112,21 @@ button[type="submit"]:disabled {
     .section-title {
         font-size: 2.1rem;
     }
+
+    #benefits-title {
+        font-size: 2.1rem;
+    }
+
+    #contact-faq-title {
+        font-size: 2.1rem;
+    }
     
     .section-description {
         font-size: 1.05rem;
     }
     
     .service-detail {
-        padding: 110px 0;
+        padding: 20px 0;
     }
     
     .service-detail-grid {
@@ -2160,6 +2167,7 @@ button[type="submit"]:disabled {
     
     .service-cta {
         margin-top: 35px;
+        margin-left: 20px;
         gap: 10px;
     }
     
@@ -2202,7 +2210,7 @@ button[type="submit"]:disabled {
     }
     
     .contact-faq {
-        padding: 100px 0;
+        padding: 3px;
     }
     
     .faq-question {
@@ -2334,7 +2342,7 @@ button[type="submit"]:disabled {
     }
     
     #newsletterForm button {
-        padding: 0 18px;
+        padding: 0 10px;
         font-size: 0.85rem;
     }
     
@@ -2344,8 +2352,8 @@ button[type="submit"]:disabled {
     }
     
     .back-to-top {
-        bottom: 80px;
-        right: 15px;
+        bottom: 100px;
+        right: 23px;
         width: 40px;
         height: 40px;
         font-size: 1rem;
