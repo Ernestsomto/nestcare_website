@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Close menu when resizing to desktop
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 992) {
                 hamburger.classList.remove('active');
                 navMenuContainer.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');

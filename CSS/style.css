@@ -159,7 +159,6 @@ h1, h2, h3, h4, h5, h6 {
 .navbar.scrolled {
     box-shadow: var(--shadow-md);
     background-color: rgba(255, 255, 255, 0.98);
-    padding: 8px 0;
 }
 
 .nav-container {
@@ -169,13 +168,14 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 75px;
+    height: 65px;
     position: relative;  
 
 }
 
 .logo img {
-    height: 100px;
+    height: 55px;
+    padding-top: 7px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -503,7 +503,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(8px) brightness(0.7);
+    filter: blur(8px) brightness(0.6);
     transition: transform 0.7s ease;
     will-change: transform;
 }
@@ -542,7 +542,6 @@ h1, h2, h3, h4, h5, h6 {
 .hero-content-modern {
     text-align: center;
     max-width: 900px;
-    padding: 20px;
     position: relative;
     z-index: 10;
     animation: fadeInUp 1s ease-out;
@@ -569,6 +568,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     padding: 10px 30px;
     border-radius: 50px;
+    margin-top: 15px;
     margin-bottom: 30px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -647,6 +647,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-lg {
     padding: 18px 50px;
     font-size: 1.25rem;
+    border: solid 2px grey;
     color: whitesmoke;
     border-radius: 50px;
     font-weight: 600;
@@ -985,8 +986,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-xl {
-    padding: 20px 30px;
-    font-size: 1.4rem;
+    padding: 15px 10px;
+    font-size: 1.1rem;
     border-radius: 50px;
     box-shadow: 0 8px 30px rgba(34, 139, 34, 0.35);
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -998,7 +999,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-xl i {
-  padding-right: 20px;
+  padding-right: 10px;
   padding-bottom: 2px;
 }
 
@@ -2255,7 +2256,8 @@ button[type="submit"]:disabled {
     .about-grid,
     .contact-grid,
     .support-grid {
-        gap: 60px;
+        display: flex;
+        flex-direction: column;
     }
     
     .footer-grid {
@@ -2293,7 +2295,7 @@ button[type="submit"]:disabled {
     
     .back-to-top {
         bottom: 100px;
-        right: 25px;
+        right: 30px;
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
@@ -2341,220 +2343,306 @@ button[type="submit"]:disabled {
     .nav-menu {
         gap: 28px;
     }
-    
-    .btn-primary-nav-main {
-        padding: 9px 22px;
-        font-size: 1rem;
-        height: 40px;
+
+    .hamburger {
+        display: flex;
     }
-    
-    .hero-modern {
-        min-height: 650px;
-        padding-top: 75px;
-    }
-    
-    .hero-content-modern h1 {
-        font-size: 3.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.35rem;
-        padding: 0 15px;
-    }
-    
-    .hero-buttons-modern {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-    }
-    
-    .btn-lg {
-        width: 100%;
-        max-width: 400px;
-        justify-content: center;
-    }
-    
-    .hero-stats {
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-    
-    .stat-number {
-        font-size: 2.2rem;
-    }
-    
-    .stat-label {
-        font-size: 1.05rem;
-    }
-    
-    .section-title {
-        font-size: 2.5rem;
-    }
-    
-    .section-description {
-        font-size: 1.2rem;
-    }
-    
-    .services-grid-modern {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-    
-    .service-card-modern {
-        height: 470px;
-    }
-    
-    .card-icon-modern {
-        font-size: 9rem;
-    }
-    
-    .card-content-modern {
-        padding: 35px 25px 25px;
-    }
-    
-    .card-content-modern h3 {
-        font-size: 1.75rem;
-    }
-    
-    .jobs-scroller-track {
-        width: calc(268px * 9 + 25px * 8);
-        gap: 25px;
-        animation-duration: 50s;
-    }
-    
-    .job-card {
-        min-width: 268px;
-    }
-    
-    .job-image {
-        height: 160px;
-    }
-    
-    .job-content {
-        padding: 25px;
-    }
-    
-    .job-content h3 {
-        font-size: 1.4rem;
-    }
-    
-    .scroller-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-    }
-    
-    .view-all-jobs .btn {
-        padding: 14px 35px;
-        font-size: 1.05rem;
-    }
-    
-    .contact-grid,
-    .support-grid {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-    
-    .info-item {
-        gap: 20px;
-    }
-    
-    .info-item i {
-        font-size: 2rem;
-        min-width: 50px;
-    }
-    
-    .info-item h4 {
-        font-size: 1.4rem;
-    }
-    
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea,
-    .support-form input,
-    .support-form select,
-    .support-form textarea {
-        padding: 14px;
-        font-size: 1rem;
-    }
-    
-    .btn-block {
-        padding: 18px;
-        font-size: 1.15rem;
-    }
-    
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px;
-    }
-    
-    .footer-section h3 {
-        font-size: 1.7rem;
-    }
-    
-    .footer-section ul li a {
-        font-size: 1rem;
-    }
-    
-    .social-links a {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-    
-    #newsletterForm input {
-        padding: 13px 15px;
-        font-size: 0.95rem;
-    }
-    
-    #newsletterForm button {
-        padding: 0 22px;
-        font-size: 0.95rem;
-    }
-    
-    .footer-bottom {
-        font-size: 1rem;
-        padding-top: 30px;
-    }
-    
-    .back-to-top {
-        bottom: 100px;
-        right: 25px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
-    .whatsapp-float {
-        width: 60px;
-        height: 60px;
-        bottom: 25px;
-        right: 25px;
-    }
-    
-    .whatsapp-icon {
-        font-size: 26px !important;
-    }
-    
-    .whatsapp-tooltip {
-        display: none;
-    }
-    
-    .success-content {
-        padding: 45px 25px;
-    }
-    
-    .success-title {
-        font-size: 1.9rem;
-    }
-    
-    .success-message {
-        font-size: 1.05rem;
-    }
-    
-    .success-btn {
-        padding: 12px 40px;
-        font-size: 1.05rem;
-    }
+
+.hamburger-line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--dark-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu-container {
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 30px;
+    gap: 32px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.92rem;
+    position: relative;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+.nav-menu-container.active {
+    max-height: 900px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* Hide desktop menu */
+.nav-menu-container {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, box-shadow 0.3s ease;
+    z-index: 9998;
+}
+
+.btn-primary-nav-main {
+    padding: 9px 22px;
+    font-size: 1rem;
+    height: 40px;
+}
+
+.hero-modern {
+    min-height: 650px;
+    padding-top: 45px;
+}
+
+.hero-content-modern h1 {
+    font-size: 3.8rem;
+}
+
+.hero-subtitle {
+    font-size: 1.35rem;
+    padding: 0 15px;
+}
+
+.hero-buttons-modern {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.btn-lg {
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+}
+
+.hero-stats {
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+}
+
+.stat-label {
+    font-size: 1.05rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+}
+
+.section-description {
+    font-size: 1.2rem;
+}
+
+.services-grid-modern {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.service-card-modern {
+    height: 470px;
+}
+
+.card-icon-modern {
+    font-size: 9rem;
+}
+
+.card-content-modern {
+    padding: 35px 25px 25px;
+}
+
+.card-content-modern h3 {
+    font-size: 1.75rem;
+}
+
+.jobs-scroller-track {
+    width: calc(268px * 9 + 25px * 8);
+    gap: 25px;
+    animation-duration: 50s;
+}
+
+.job-card {
+    min-width: 268px;
+}
+
+.job-image {
+    height: 160px;
+}
+
+.job-content {
+    padding: 25px;
+}
+
+.job-content h3 {
+    font-size: 1.4rem;
+}
+
+.scroller-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+}
+
+.view-all-jobs .btn {
+    padding: 14px 35px;
+    font-size: 1.05rem;
+}
+
+.contact-grid,
+.support-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+.info-item {
+    gap: 20px;
+}
+
+.info-item i {
+    font-size: 2rem;
+    min-width: 50px;
+}
+
+.info-item h4 {
+    font-size: 1.4rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.support-form input,
+.support-form select,
+.support-form textarea {
+    padding: 14px;
+    font-size: 1rem;
+}
+
+.btn-block {
+    padding: 18px;
+    font-size: 1.15rem;
+}
+
+.footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+.footer-section h3 {
+    font-size: 1.7rem;
+}
+
+.footer-section ul li a {
+    font-size: 1rem;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+}
+
+#newsletterForm input {
+    padding: 13px 15px;
+    font-size: 0.95rem;
+}
+
+#newsletterForm button {
+    padding: 0 22px;
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    font-size: 1rem;
+    padding-top: 30px;
+}
+
+.back-to-top {
+    bottom: 100px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+}
+
+.whatsapp-float {
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+}
+
+.whatsapp-icon {
+    font-size: 26px !important;
+}
+
+.whatsapp-tooltip {
+    display: none;
+}
+
+.success-content {
+    padding: 45px 25px;
+}
+
+.success-title {
+    font-size: 1.9rem;
+}
+
+.success-message {
+    font-size: 1.05rem;
+}
+
+.success-btn {
+    padding: 12px 40px;
+    font-size: 1.05rem;
+}
 }
 
 @media (max-width: 768px) {
@@ -2565,7 +2653,7 @@ button[type="submit"]:disabled {
     }
     
     .logo img {
-        height: 100px;
+        height: 50px;
     }
     
     .hamburger {
@@ -2575,7 +2663,7 @@ button[type="submit"]:disabled {
     /* Hide desktop menu */
     .nav-menu-container {
         position: fixed;
-        top: 70px;
+        top: 55px;
         left: 0;
         width: 100%;
         background-color: var(--white);
@@ -2587,7 +2675,7 @@ button[type="submit"]:disabled {
     }
     
     .nav-menu-container.active {
-        max-height: 500px;
+        max-height: 900px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
     
@@ -2644,22 +2732,32 @@ button[type="submit"]:disabled {
     }
     
     .hero-content-modern h1 {
-        font-size: 3.6rem;
+        font-size: 3.4rem;
     }
+
+    .hero-content-modern {
+    text-align: center;
+    max-width: 900px;
+    position: relative;
+    z-index: 10;
+    animation: fadeInUp 1s ease-out;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
     
     .hero-content-modern h1 span {
-        font-size: 3.4rem;
+        font-size: 3rem;
     }
     
     .hero-badge {
         padding: 12px 25px;
         font-size: 1rem;
         margin-bottom: 25px;
-        margin-top: 25px;
     }
     
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         margin-bottom: 35px;
     }
     
@@ -2746,11 +2844,13 @@ button[type="submit"]:disabled {
     }
     
     .about-grid {
-        gap: 50px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
     }
     
     .stats {
-        grid-template-columns: repeat(2, 1fr);
+        display: none;
         padding: 25px;
     }
     
@@ -2874,7 +2974,7 @@ button[type="submit"]:disabled {
     
     .back-to-top {
         bottom: 90px;
-        right: 20px;
+        right: 25px;
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
@@ -2912,12 +3012,12 @@ button[type="submit"]:disabled {
 @media (max-width: 480px) {
     .nav-container {
         padding: 0 20px;
-        height: 65px;
+        height: 55px;
     }
     
     .logo img {
-        height: 90px;
-        padding-top: 7px;
+        height: 35px;
+
     }
     
     .hamburger {
@@ -2936,17 +3036,14 @@ button[type="submit"]:disabled {
         width: calc(100% - 30px);
     }
     
-    .navbar.scrolled {
-        padding: 4px 0;
-    }
-    
     .container {
+        margin-top: 30px;
         padding: 0 20px;
     }
     
     .hero-modern {
         min-height: 580px;
-        padding-top: 65px;
+        padding-top: 2px;
     }
     
     .hero-content-modern h1 {
@@ -2993,13 +3090,47 @@ button[type="submit"]:disabled {
         font-size: 2.1rem;
     }
 
-    #contact-title {
-        font-size: 2.1rem;
+    #areas-title {
+        font-size: 1.8rem;
     }
+
+    #about-title {
+        font-size: 1.8rem;
+    }
+
+    #services-title {
+        font-size: 1.8rem;
+    }
+
+    #contact-title {
+        font-size: 1.8rem;
+    }
+
     
     .section-description {
         font-size: 1.05rem;
+        text-align: left;
     }
+
+    #jobs-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    color: var(--dark-color);
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.contact-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 0.9rem;
+}
+
     
     .services-grid-modern {
         grid-template-columns: 1fr;
@@ -3098,7 +3229,7 @@ button[type="submit"]:disabled {
     }
     
     .info-item h4 {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     
     .contact-form input,
